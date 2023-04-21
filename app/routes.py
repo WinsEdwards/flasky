@@ -15,3 +15,18 @@ crystals = [
     Crystal(3, "Rose Quartz", "Pink", "Love, compassion, partnership")]
 
 crystal_bp = Blueprint("crystals", __name__, url_prefix="/crystals")
+
+@crystal_bp.route("", methods=["GET"])
+
+def handle_crystals():
+    crystal_response = []
+    
+    for crystal in crystals:
+        crystal_response.append({
+            "id": crystal.id,
+            "name": crystal.name,
+            "color": crystal.color,
+            "powers": crystal.powers
+        })
+
+    return jsonify(crystal_response)
