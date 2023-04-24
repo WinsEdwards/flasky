@@ -16,11 +16,16 @@ crystals = [
 
 def validate_crystal(crystal_id):
     ### responsible for validating crystal input, ie checks id is valid
+    try:
+        int_crystal_id = int(crystal_id)
+    except:
+        abort(make_response({"message": f"400 BAD REQUEST: Crystal id {crystal_id} is not a valid type. Must be an integer"}, 400))
+
     for crystal in crystals:
-        if crystal.id == int(crystal_id):
+        if crystal.id == int_crystal_id:
             return crystal
     
-    abort(make_response({"message": f"404 not found: Crystal {crystal_id} does not exist"}, 404))
+    abort(make_response({"message": f"404 NOT FOUND: Crystal id {crystal_id} does not exist"}, 404))
 
 crystal_bp = Blueprint("crystals", __name__, url_prefix="/crystals")
 
