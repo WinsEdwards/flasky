@@ -48,6 +48,7 @@ def handle_crystals():
 
 def handle_crystal_ids(crystal_id):
     crystal = validate_crystal(crystal_id)
+    
     return {
         "id": crystal.id,
         "name": crystal.name,
