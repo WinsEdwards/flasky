@@ -30,3 +30,15 @@ def handle_crystals():
         })
 
     return jsonify(crystal_response)
+
+@crystal_bp.route("/<crystal_id>", methods=["GET"])
+
+def handle_crystal_ids(crystal_id):
+    for crystal in crystals:
+        if crystal.id == int(crystal_id):
+            return {
+                "id": crystal.id,
+                "name": crystal.name,
+                "color": crystal.color,
+                "powers": crystal.powers
+            }
