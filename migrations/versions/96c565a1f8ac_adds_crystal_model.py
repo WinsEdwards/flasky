@@ -1,8 +1,8 @@
 """adds crystal model
 
-Revision ID: f5d285ff5847
+Revision ID: 96c565a1f8ac
 Revises: 
-Create Date: 2023-04-28 10:02:53.612275
+Create Date: 2023-04-28 10:40:07.782859
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f5d285ff5847'
+revision = '96c565a1f8ac'
 down_revision = None
 branch_labels = None
 depends_on = None

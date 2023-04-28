@@ -16,7 +16,7 @@ def create_app():
 
     # set up database
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_DATABASE_URL'] = 'postgresql+psycopg2://postgres:postgres@localhost:5432/flasky_development'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:postgres@localhost:5432/flasky_development'
 
     # connect the db and migrate our flask app
     db.init_app(app)

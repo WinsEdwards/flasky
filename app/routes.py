@@ -1,4 +1,6 @@
 from flask import Blueprint, jsonify, abort, make_response
+from app import db
+from app.models.crystal import Crystal
 
 # class Crystal:
 #     def __init__(self, id, name, color, powers):
@@ -55,3 +57,20 @@ crystal_bp = Blueprint("crystals", __name__, url_prefix="/crystals")
 #         "color": crystal.color,
 #         "powers": crystal.powers
 #     }
+
+@crystal_bp.route("", methods=['POST'])
+
+# define a route for creating a crystal resource
+def handle_crustals():
+    request_bodu = request.get_json()
+
+    new_crystal = Crystal(
+        name = request_body["name"],
+        color = request_body["color"],
+        powers = request_body["powers"]
+    )
+
+    db.session.add(new_crystal)
+    db.session.commit()
+
+    return make_response(f"Crystal {new_crystal.name} successfully created!", 201)
