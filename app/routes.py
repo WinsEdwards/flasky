@@ -80,6 +80,7 @@ def handle_crustals():
 def read_all_crystals():
     crystals = Crystal.query.all() 
     crystals_response = []
+
     for crystal in crystals:
         crystals_response.append({
             "id": crystal.id,
@@ -87,4 +88,5 @@ def read_all_crystals():
             "color": crystal.color,
             "powers": crystal.powers
         })
+        
     return jsonify(crystals_response)
