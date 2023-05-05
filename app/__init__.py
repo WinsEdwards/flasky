@@ -29,8 +29,8 @@ def create_app(test_config=None):
         app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
     else:
         app.config["TESTING"] = True
-         app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        app.config['SQLALCHEMY_TEST_DATABASE_URI'] = os.environ.get('SQLALCHEMY_TEST_DATABASE_URI')
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_TEST_DATABASE_URI')
         # 'postgresql+psycopg2://postgres:postgres@localhost:5432/flasky_development'
 
     # connect the db and migrate our flask app

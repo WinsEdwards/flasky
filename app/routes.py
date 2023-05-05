@@ -74,7 +74,7 @@ def handle_crystals():
     db.session.add(new_crystal)
     db.session.commit()
 
-    return make_response(f"Crystal {new_crystal.name} successfully created!", 201)
+    return jsonify(f"Crystal {new_crystal.name} successfully created!"), 201
 
 @crystal_bp.route("", methods=["GET"])
 
@@ -116,7 +116,7 @@ def update_crystal(crystal_id):
 
     db.session.commit()
 
-    return make_response(f"Crystal #{crystal.id} successfully updated", 200)
+    return jsonify(f"Crystal #{crystal.id} successfully updated"), 200
 
 @crystal_bp.route("/<crystal_id>", methods = ['Delete'])
 
@@ -126,4 +126,4 @@ def delete_crystal(crystal_id):
     db.session.delete(crystal)
     db.session.commit()
 
-    return make_response(f"Crystal #{crystal_id} successfully deleted", 200)
+    return jsonify(f"Crystal #{crystal_id} successfully deleted"), 200
