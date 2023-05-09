@@ -44,5 +44,6 @@ def create_app(test_config=None):
     app.register_blueprint(crystal_bp)
 
     from app.models.crystal import Crystal
+    from app.models.healer import Healer
 
     return app
